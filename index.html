@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coder's Portfolio</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+   <!-- Overlay for transparency effect -->
+   <div class="overlay"></div>
+
+  <header>
+    <h1>@ankit_prabhavak: Tech Enthusiast from India, building solutions and exploring innovations.</h1>
+   
+    <nav>
+      <ul class="nav-box">
+        <li><a href="#about" onclick="showSection('about')">About Me</a></li>
+        <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+      </ul>
+    </nav>
+  </header> 
+  
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I’m a second-year B.Tech CSE student 💻 passionate about technology and problem-solving 🔍. Always eager to learn and build 🚀, I specialize in software development, web technologies, and cybersecurity 🔒.</p>
+    <h3>Skills:</h3>
+    <ul>
+      <li>Languages: C, C++, Python, JavaScript 🖥️</li>
+      <li>Web Development: HTML, CSS, JavaScript, Node.js, Flask/Django 🌐</li>
+      <li>Databases: SQL (MySQL), NoSQL (MongoDB) 🗃️</li>
+      <li>Version Control: Git, GitHub 🧑‍💻</li>
+      <li>Operating Systems: Linux, Windows 🖥️</li>
+      <li>Cybersecurity: Network security, encryption, ethical hacking 🔐</li>
+    </ul>
+    <p>I’m always looking for exciting projects and opportunities to grow, collaborate, and make an impact in tech! 🌟</p>
+    
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <p>Check out some of my recent work:</p>
+    <ul>
+      <li><a href="#">Project 1: Portfolio Website</a></li>
+      <!-- Add more project links here -->
+      <li><a href="#">Project 2: Todo List App</a></li>
+      <li><a href="#">Project 3: E-Commerce Site</a></li>
+    </ul>
+  </section>
+
+  <section id="blog" class="section">
+    <h2>Blog</h2>
+    <p>Read my latest posts on web development and programming:</p>
+    <ul>
+      <li><a href="#">How to Build a Web App with React</a></li>
+      <!-- Add more blog links here -->
+      <li><a href="#">10 JavaScript Tips You Need to Know</a></li>
+      <li><a href="#">CSS Grid vs Flexbox: Which One Should You Use?</a></li>
+      
+    </ul>
+   
+    
+  </section>
+
+  <footer>
+    <p>Connect with me: <a href="mailto:ankitabcd1718@gmail.com">Email</a></p>
+    <p>Find me on: 
+      <a href="https://x.com/ankit_prabhavak" target="_blank">X</a> | 
+      <a href="https://github.com/ankit_prabhavak" target="_blank">GitHub</a>
+    </p>
+  </footer>
+
+  <script>
+    // Function to show the respective section when the link is clicked
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+    }
+
+    // Initially show the 'about' section and hide others
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('about');
+    });
+  </script>
+
+</body>
+</html>
