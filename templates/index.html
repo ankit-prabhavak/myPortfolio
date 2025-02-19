@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coder's Portfolio</title>
+   <!-- Favicon (Logo Icon) -->
+   <link rel="icon" href="{{ url_for('static', filename='MyLogo.ico') }}" type="image/x-icon">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #fff;
+    }
+    body.dark-mode header, body.dark-mode footer {
+      background-color: #333;
+    }
+    body.dark-mode .nav-box a {
+      color: #fff;
+    }
+    /* Active link style */
+    .nav-box a.active {
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+   <!-- Overlay for transparency effect -->
+   <div class="overlay"></div>
+
+  <header>
+    <h1>@ankit_prabhavak: Dreaming in code, building in real life.</h1>
+    
+  
+    <nav>
+      
+      <ul class="nav-box">
+        <li><a href="#home" onclick="showSection('home')" >Home</a></li>
+        <li><a href="#about" onclick="showSection('about')">About Me</a></li>
+        <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+        <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+        <button onclick="toggleDarkMode()" id="toggleButton">Toggle Dark Mode</button>
+      
+      </ul>
+
+    
+     
+
+    </nav>
+  </header> 
+
+  <section id="home" class="section">
+    <h2>Personal Information:</h2>
+    <div class="personal-info-container">
+      <!-- Image Circle -->
+      <div class="image-container">
+        <img src="{{ url_for('static', filename='profi.jpg') }}" alt="Ankit Kumar" class="profile-image">
+   
+      </div>
+  
+      <!-- Personal Details -->
+      <div class="details-container">
+        
+        <h3>Ankit Kumar</h3>
+        <p><strong>Profession:</strong> Web Developer / Tech Enthusiast</p>
+        <p><strong>Location:</strong> India</p>
+        <p><strong>Personal Overview:</strong> Passionate about building innovative solutions and exploring new technologies. Always learning, always coding!</p>
+        <p><strong>My Philosophy:</strong> "Continuous learning and growth drive success." 🌱</p>
+        <p><strong>A Day in My Life:</strong> I start my day with coffee ☕, then check emails and code. Afternoons are for learning new tech, and evenings for personal projects or podcasts.</p> <p><strong>Inspiration:</strong> Inspired by tech pioneers like Elon Musk and the open-source community. Their work motivates me to continuously push the boundaries of what I can achieve.</p>
+        <p><strong>Off-Work Interests:</strong> Outside of coding, I love photography, playing guitar, and experimenting with digital art.</p>
+        <p>Find me on: 
+        <a href="https://twitter.com/ankit_prabhavak" target="_blank">
+          <i class="fab fa-x"></i></a>  | 
+          <a href="https://www.instagram.com/ankit_prabhavak/" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram</a>
+        </p>
+        <!-- Call to Action -->
+        <p>Feel free to connect with me if you're interested in collaboration or just a friendly tech chat! 😊</p>
+   
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I’m a second-year B.Tech CSE student 💻 passionate about technology and problem-solving 🔍. Always eager to learn and build 🚀, I specialize in software development, web technologies, and cybersecurity 🔒.</p>
+    <p><strong>Passion Projects:</strong> I’m currently working on an open-source project that aims to make tech education more accessible to beginners in underserved communities.</p>
+    <p><strong>What's Next:</strong> Currently learning React and looking forward to working on my first full-stack project with a Node.js backend.</p>
+    <p><strong>Learning Journey:</strong> I’m deeply curious about AI and machine learning. I spend time daily reading papers, watching tutorials, and experimenting with projects.</p>
+    
+    
+    <h3>Skills:</h3>
+    <ul>
+      <li>Languages: C, C++, Python, JavaScript 🖥️</li>
+      <li>Web Development: HTML, CSS, JavaScript, Node.js, Flask/Django 🌐</li>
+      <li>Databases: SQL (MySQL), NoSQL (MongoDB) 🗃️</li>
+      <li>Version Control: Git, GitHub 🧑‍💻</li>
+      <li>Operating Systems: Linux, Windows 🖥️</li>
+      <li>Cybersecurity: Network security, encryption, ethical hacking 🔐</li>
+    </ul>
+    <p>I’m always looking for exciting projects and opportunities to grow, collaborate, and make an impact in tech! 🌟</p>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <p>Check out some of my recent work:</p>
+    <ul>
+      <li><a href="#">Project 1: Portfolio Website</a></li>
+      <li><a href="#">Project 2: Face Recognition Flask WebApp</a></li>
+      <li><a href="#">Project 3: General Purpose Assistant Using Python</a></li>
+    </ul>
+  </section>
+
+  <section id="blog" class="section">
+    <h2>Blog</h2>
+    <p>Read my latest posts on web development and programming:</p>
+    <ul>
+      <li><a href="#">How to Build a Web App with React</a></li>
+      <li><a href="#">10 JavaScript Tips You Need to Know</a></li>
+      <li><a href="#">CSS Grid vs Flexbox: Which One Should You Use?</a></li>
+    </ul>
+  </section>
+
+ <!-- Contact Form Section -->
+ <section id="contact" class="section">
+  <h2>Contact Me</h2>
+  <p>I'd love to hear from you! Feel free to reach out for any collaboration, inquiries, or just to say hi.</p>
+
+  <!-- Initially hidden thank-you message -->
+  <p id="thank-you-message" style="color: green; font-weight: bold; display: none;">Thank you for your message! It has been saved successfully.</p>
+
+  <!-- Contact Form -->
+  <form action="/contact" method="POST" class="contact-form" id="contact-form">
+      <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      
+      <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>Connect with me:</p>
+  <p>
+    <a href="mailto:ankitabcd1718@gmail.com">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    |
+    <a href="https://linkedin.com/in/ankit-prabhavak" target="_blank">
+     LinkedIn  
+    </a> |
+    <a href="https://github.com/ankit-prabhavak" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </p>
+</footer>
+
+
+  <script>
+    // Function to show the respective section when the link is clicked
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+  
+      const activeSection = document.getElementById(sectionId);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+  
+      // Update active navigation link
+      const links = document.querySelectorAll('.nav-box a');
+      links.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+         document.body.classList.toggle('dark-mode'); // Toggle dark mode on body
+     }
+
+  
+    // Prevent form submission from reloading the page
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();  // Prevents the form from submitting the normal way (no page reload)
+        
+        // Collect form data
+        const formData = new FormData(contactForm);
+        
+        // Send data via fetch (AJAX) to Flask endpoint
+        fetch('/contact', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+          // Once data is submitted, show a success message and keep the user in the contact section
+          document.getElementById('thank-you-message').style.display = 'block';
+          
+          // Scroll smoothly to the contact section
+          const contactSection = document.getElementById('contact');
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+  
+          // Optionally, reset the form if you want it to be cleared after submission
+          contactForm.reset();
+        })
+        .catch(error => console.error('Error submitting form:', error));
+      });
+    }
+  
+    // Initially show the 'about' section and hide others
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('home');
+    });
+  </script>
+  
+</body>
+</html>
